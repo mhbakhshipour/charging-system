@@ -34,7 +34,7 @@ def update_current_balance_task(self, transaction_id: int):
                 new_transaction.vendor.save(update_fields=["current_balance"])
             else:
                 new_transaction.customer.current_balance = (
-                    models.F("current_balance") - new_transaction.amount
+                    models.F("current_balance") + new_transaction.amount
                 )
                 new_transaction.customer.save(update_fields=["current_balance"])
     except Exception as e:
