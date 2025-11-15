@@ -11,6 +11,11 @@ class CustomerService:
     @staticmethod
     @transaction.atomic
     def increase_credit(vendor: Vendor, amount: int, customer: Customer):
+        if not vendor.current_balance >= amount:
+            raise ValueError(
+                "Vendor does not have enough balance to increase customer credit."
+            )
+
         vendor_transaction = TransactionService.add_transaction(
             vendor=vendor,
             amount=-amount,
