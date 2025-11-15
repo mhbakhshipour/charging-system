@@ -20,6 +20,7 @@ dependencies = [
     "django-redis (>=6.0.0,<7.0.0)",
     "celery (>=5.5.3,<6.0.0)",
     "redlock (>=1.2.0,<2.0.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
 ]
 
 
