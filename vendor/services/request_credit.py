@@ -17,7 +17,7 @@ class RequestCreditService:
             return request_credit
 
         VendorCreditService.increase_credit(
-            request_credit.requester_id, request_credit.amount
+            request_credit.requester, request_credit.amount
         )
 
         request_credit.status = RequestCredit.RequestCreditStatus.CONFIRMED
