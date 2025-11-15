@@ -144,6 +144,7 @@ DATABASES = {
         "PASSWORD": env.str("DB_PASSWORD") or env.str("DB_ROOT_PASSWORD"),
         "HOST": env.str("DB_HOST"),
         "PORT": env.str("DB_PORT"),
+        "CONN_MAX_AGE": env.int("DB_CONN_MAX_AGE", default=60),
     }
 }
 
