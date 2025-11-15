@@ -23,14 +23,3 @@ class RequestCredit(BaseModel):
 
     def __str__(self):
         return f"{self.requester} - {self.amount} - {self.status}"
-
-    def save(self, *args, **kwargs):
-        if self.pk and self.status == self.RequestCreditStatus.CONFIRMED:
-            self.update_current_balance(self)
-        super().save(*args, **kwargs)
-
-    def update_current_balance(self):
-        if self.status == self.RequestCreditStatus.CONFIRMED:
-            vendor = self.requester
-            vendor.current_balance = models.F("current_balance") + self.amount
-            vendor.save(update_fields=["current_balance"])
