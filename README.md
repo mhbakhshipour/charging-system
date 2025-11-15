@@ -1,4 +1,4 @@
-# Charging System B2B
+# Charging System
 
 A Django + DRF application for CHARGING SYSTEM with production‑grade concurrency: atomic balance updates, idempotent unsafe requests, rate limiting, Redis caching, and Celery background processing.
 
