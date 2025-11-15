@@ -8,4 +8,4 @@ from vendor.models.vendor import Vendor
 class VendorSerializer(BaseModelserializer):
     class Meta:
         model = Vendor
-        fields = ["name", "created_at", "updated_at"]
+        fields = ["name", "current_balance", "created_at", "updated_at"]
