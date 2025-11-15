@@ -14,6 +14,7 @@ logger = get_task_logger(__name__)
 
 @app.task(
     name="update_current_balance_task",
+    base=RedlockedTask,
     bind=True,
     autoretry_for=(Exception,),
     retry_kwargs={"max_retries": 10, "countdown": 5},
