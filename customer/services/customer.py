@@ -11,10 +11,14 @@ class CustomerService:
     @staticmethod
     @transaction.atomic
     def increase_credit(vendor: Vendor, amount: int, customer: Customer):
-        new_transaction = TransactionService.add_transaction(
+        vendor_transaction = TransactionService.add_transaction(
+            vendor=vendor,
+            amount=-amount,
+        )
+        customer_transaction = TransactionService.add_transaction(
             vendor=vendor,
             customer=customer,
             amount=amount,
         )
 
-        return new_transaction
+        return customer_transaction
